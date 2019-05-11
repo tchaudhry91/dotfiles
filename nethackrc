@@ -1,0 +1,9 @@
+OPTIONS=role:wizard
+OPTIONS=gender:male
+
+OPTIONS=showexp,showscore,time,color
+OPTIONS=autodig
+OPTIONS=lit_corridor
+OPTIONS=hilite_pet
+
+OPTIONS=hilite_pile
