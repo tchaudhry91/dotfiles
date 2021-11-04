@@ -35,6 +35,7 @@ config:
           - [rc-update, add, sshd]
           - [/etc/init.d/sshd, start]
           - [sh, -xc, "echo 'UsePAM yes' > /etc/ssh/sshd_config"]
+          - [/etc/init.d/sshd, restart]
 description: Base profile for Tux-Sudo Containers
 devices:
     eth0:
