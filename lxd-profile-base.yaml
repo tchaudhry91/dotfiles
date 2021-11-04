@@ -1,0 +1,45 @@
+### This is a YAML representation of the profile.
+### Any line starting with a '# will be ignored.
+###
+### A profile consists of a set of configuration items followed by a set of
+### devices.
+###
+### An example would look like:
+### name: onenic
+### config:
+###   raw.lxc: lxc.aa_profile=unconfined
+### devices:
+###   eth0:
+###     nictype: bridged
+###     parent: lxdbr0
+###     type: nic
+###
+### Note that the name is shown but cannot be changed
+
+config:
+    user.user-data: |
+        #cloud-config
+        package_upgrade: true
+        packages:
+          - openssh-keygen
+          - openssh
+          - vim
+        users:
+          - name: alpine
+            ssh_authorized_keys:
+              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzW21LSW8EOhed9ar/50/F075Lp1e38HBN/0G7msT/SXyctJ3zto1RP30xCfvvxOLqwczOxIkCDd5Kj2vteIlTtKbS6ecUCz5STfhH3q6BUoF/8wgv8es1Yld+GjNqM1ncnucYJN3SQQvc7ztmpUaYS5/QoAEQ+uAIEOZIlP6HGosFHGy0BPKGTVZ8qaAb/jxsBfgB4rEG7Pw4n5bb9oXnJnhvfVmQQy6D1VeHQVNUkX/1/oPFGeuzZYHSIijd7AVxflZSFlp7iYpqaVCIMziWyWzTqXqyH5yc4inLlgeDlWPZMGci/1M2SWNNsbBqWe9p79FmvMNTAH5RvLEyX4ln
+        runcmd:
+          - [rc-update, add, sshd]
+          - [/etc/init.d/sshd, start]
+description: Base profile for Tux-Sudo Containers
+devices:
+    eth0:
+        name: eth0
+        network: lxdbr0
+        type: nic
+    root:
+        path: /
+        pool: localpool
+        type: disk
+name: base-tc
+used_by: []
