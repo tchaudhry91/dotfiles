@@ -21,16 +21,20 @@ config:
         #cloud-config
         package_upgrade: true
         packages:
-          - openssh-keygen
           - openssh
+          - openssh-pam
           - vim
+          - openssl
+          - ca-certificates
         users:
           - name: alpine
             ssh_authorized_keys:
-              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzW21LSW8EOhed9ar/50/F075Lp1e38HBN/0G7msT/SXyctJ3zto1RP30xCfvvxOLqwczOxIkCDd5Kj2vteIlTtKbS6ecUCz5STfhH3q6BUoF/8wgv8es1Yld+GjNqM1ncnucYJN3SQQvc7ztmpUaYS5/QoAEQ+uAIEOZIlP6HGosFHGy0BPKGTVZ8qaAb/jxsBfgB4rEG7Pw4n5bb9oXnJnhvfVmQQy6D1VeHQVNUkX/1/oPFGeuzZYHSIijd7AVxflZSFlp7iYpqaVCIMziWyWzTqXqyH5yc4inLlgeDlWPZMGci/1M2SWNNsbBqWe9p79FmvMNTAH5RvLEyX4ln
+              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzW21LSW8EOhed9ar/50/F075Lp1e38HBN/0G7msT/SXyctJ3zto1RP30xCfvvxOLqwczOxIkCDd5Kj2vteIlTtKbS6ecUCz5STfhH3q6BUoF/8wgv8es1Yld+GjNqM1ncnucYJN3SQQvc7ztmpUaYS5/QoAEQ+uAIEOZIlP6HGosFHGy0BPKGTVZ8qaAb/jxsBfgB4rEG7Pw4n5bb9oXnJnhvfVmQQy6D1VeHQVNUkX/1/oPFGeuzZYHSIijd7AVxflZSFlp7iYpqaVCIMziWyWzTqXqyH5yc4inLlgeDlWPZMGci/1M2SWNNsbBqWe9p79FmvMNTAH5RvLEyX4ln tanmay.chaudhry@tum.de
+            sudo: ALL=(ALL) NOPASSWD:ALL
         runcmd:
           - [rc-update, add, sshd]
           - [/etc/init.d/sshd, start]
+          - [sh, -xc, "echo 'UsePAM yes' > /etc/ssh/sshd_config"]
 description: Base profile for Tux-Sudo Containers
 devices:
     eth0:
