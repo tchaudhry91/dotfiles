@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+# Assume Nix-Env and install base packages
+nix-env -i neovim git ripgrep
+
 CONFDIR="~/.config"
 
 cp -r ./nvim CONFDIR/
