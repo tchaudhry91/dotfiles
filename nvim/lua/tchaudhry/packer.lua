@@ -21,9 +21,11 @@ return require('packer').startup(function(use)
 
 	use('vimwiki/vimwiki')
 	use('theprimeagen/harpoon')
+	use('theprimeagen/vim-be-good')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
 	use('tpope/vim-commentary')
+	use('github/copilot.vim')
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -31,7 +33,7 @@ return require('packer').startup(function(use)
 		requires = {
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' }, -- Required
-			{     -- Optional
+			{       -- Optional
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
