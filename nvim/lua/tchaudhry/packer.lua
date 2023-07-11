@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 	use('tpope/vim-commentary')
 	use('github/copilot.vim')
+	use('beauwilliams/statusline.lua')
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
