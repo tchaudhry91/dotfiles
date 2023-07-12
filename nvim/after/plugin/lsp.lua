@@ -17,8 +17,20 @@ lsp.format_on_save({
 	}
 })
 
--- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig').rust_analyzer.setup {
+	settings = {
+		['rust-analyzer'] = {
+			checkOnSave = {
+				allFeatures = true,
+				overrideCommand = {
+					'cargo', 'clippy', '--workspace', '--message-format=json',
+					'--all-targets', '--all-features'
+				}
+			}
+		}
+	}
+}
 
 lsp.setup()
 
