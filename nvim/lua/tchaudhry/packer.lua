@@ -21,6 +21,10 @@ return require('packer').startup(function(use)
 		run = ':TSUpdate'
 	}
 
+	use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+		require("toggleterm").setup()
+	end }
+
 	use('vimwiki/vimwiki')
 	use('theprimeagen/vim-be-good')
 	use('mbbill/undotree')
