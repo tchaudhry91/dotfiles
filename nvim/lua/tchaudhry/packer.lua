@@ -25,6 +25,11 @@ return require('packer').startup(function(use)
 		require("toggleterm").setup()
 	end }
 
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+	})
+
 	use('vimwiki/vimwiki')
 	use('theprimeagen/vim-be-good')
 	use('mbbill/undotree')
