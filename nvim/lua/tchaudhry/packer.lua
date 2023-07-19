@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
 	}
 
 	use 'folke/tokyonight.nvim'
+	use('nvim-lua/plenary.nvim')
+	use('ThePrimeagen/harpoon')
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -20,11 +22,12 @@ return require('packer').startup(function(use)
 	}
 
 	use('vimwiki/vimwiki')
-	use('theprimeagen/harpoon')
 	use('theprimeagen/vim-be-good')
 	use('mbbill/undotree')
 	use('tpope/vim-commentary')
 	use('github/copilot.vim')
+	use('nvim-tree/nvim-tree.lua')
+	use('nvim-tree/nvim-web-devicons')
 	use('beauwilliams/statusline.lua')
 	use {
 		'VonHeikemen/lsp-zero.nvim',
