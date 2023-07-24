@@ -21,19 +21,13 @@ return require('packer').startup(function(use)
 		run = ':TSUpdate'
 	}
 
-	use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-		require("toggleterm").setup()
-	end }
-
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 
 	use('vimwiki/vimwiki')
-	use('theprimeagen/vim-be-good')
 	use('mbbill/undotree')
-	use('tpope/vim-commentary')
 	use('github/copilot.vim')
 	use('nvim-tree/nvim-tree.lua')
 	use('nvim-tree/nvim-web-devicons')
