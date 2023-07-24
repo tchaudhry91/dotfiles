@@ -2,6 +2,7 @@ local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
+	vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { buffer = true })
 end)
 
 lsp.format_on_save({
@@ -17,9 +18,7 @@ lsp.format_on_save({
 	}
 })
 
-lsp.setup()
-
-require('lspconfig').rust_analyzer.setup {
+require("lspconfig").rust_analyzer.setup {
 	settings = {
 		['rust-analyzer'] = {
 			checkOnSave = {
