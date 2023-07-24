@@ -17,29 +17,8 @@ lsp.format_on_save({
 	}
 })
 
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
-	local opts = { buffer = bufnr }
-
-	vim.keymap.set({ 'n', 'x' }, 'gq', function()
-		vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-	end, opts)
-end)
-
-
-
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
-	local opts = { buffer = bufnr }
-
-	vim.keymap.set({ 'n', 'x' }, 'gq', function()
-		vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-	end, opts)
-end)
-
 lsp.setup()
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 require('lspconfig').rust_analyzer.setup {
 	settings = {
 		['rust-analyzer'] = {
