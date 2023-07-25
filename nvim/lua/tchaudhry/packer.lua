@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
 	use('nvim-tree/nvim-tree.lua')
 	use('nvim-tree/nvim-web-devicons')
 	use('beauwilliams/statusline.lua')
+	use('christoomey/vim-tmux-navigator')
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
