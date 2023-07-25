@@ -17,4 +17,6 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+y")
 
+vim.keymap.set("n", "<leader>`", ":ToggleTerm<CR>")
+
 vim.wo.relativenumber = true
