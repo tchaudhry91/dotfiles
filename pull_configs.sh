@@ -9,3 +9,7 @@ rsync -avz --delete --exclude 'packer_compiled.lua' ~/.config/nvim ./
 # Sync tmux dir here
 echo "Syncing TMUX Conf.."
 rsync -avz --delete ~/.config/tmux/tmux.conf ./tmux/
+
+# Sync kitty dir here
+echo "Syncing Kitty Conf.."
+rsync -avz --delete ~/.config/kitty ./

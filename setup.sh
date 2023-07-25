@@ -18,3 +18,8 @@ rm -rf ~/.config/tmux/tmux.conf || true
 cp -r ./tmux/tmux.conf ~/.config/tmux/tmux.conf
 
 [ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+
+# Add Kitty conf
+rm -rf ~/.config/kitty || true
+cp -r ./kitty ~/.config/kitty
