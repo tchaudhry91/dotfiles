@@ -15,6 +15,7 @@ cp -r ./nvim ~/.config/
 
 # Add Tmux Conf
 rm -rf ~/.config/tmux/tmux.conf || true
+mkdir -p ~/.config/tmux || true
 cp -r ./tmux/tmux.conf ~/.config/tmux/tmux.conf
 
 [ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
