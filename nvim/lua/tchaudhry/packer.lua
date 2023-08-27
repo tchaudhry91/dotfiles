@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 
+	use '~/Workspace/termtasks.nvim'
 	use('vimwiki/vimwiki')
 	use('mbbill/undotree')
 	use('github/copilot.vim')

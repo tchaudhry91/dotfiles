@@ -15,6 +15,9 @@ lsp.format_on_save({
 		['lua_ls'] = { 'lua' },
 		['black'] = { 'python' },
 		['gopls'] = { 'go' },
+		['svelte'] = { 'svelte' },
+		['prettier'] = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'json', 'yaml',
+			'markdown', 'html', 'css', 'scss', 'less', 'graphql', 'vue' },
 	}
 })
 
