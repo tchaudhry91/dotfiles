@@ -16,8 +16,6 @@ lsp.format_on_save({
 		['black'] = { 'python' },
 		['gopls'] = { 'go' },
 		['svelte'] = { 'svelte' },
-		['prettier'] = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'json', 'yaml',
-			'markdown', 'html', 'css', 'scss', 'less', 'graphql', 'vue' },
 	}
 })
 
@@ -50,4 +48,12 @@ cmp.setup({
 		['<CR>'] = cmp.mapping.confirm({ select = false }),
 		['<C-Space>'] = cmp.mapping.complete(),
 	}
+})
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+	sources = {
+		require("null-ls").builtins.formatting.prettierd,
+	},
 })

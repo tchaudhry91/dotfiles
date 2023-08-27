@@ -20,3 +20,5 @@ vim.keymap.set("n", "<leader>Y", "\"+y")
 vim.keymap.set("n", "<leader>`", ":ToggleTerm<CR>")
 
 vim.wo.relativenumber = true
+
+vim.keymap.set("n", "<leader>w", ":lua vim.lsp.buf.format()<CR>")

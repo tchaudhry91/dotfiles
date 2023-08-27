@@ -30,7 +30,6 @@ return require('packer').startup(function(use)
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 
-	use '~/Workspace/termtasks.nvim'
 	use('vimwiki/vimwiki')
 	use('mbbill/undotree')
 	use('github/copilot.vim')
@@ -58,4 +57,5 @@ return require('packer').startup(function(use)
 			{ 'L3MON4D3/LuaSnip' }, -- Required
 		}
 	}
+	use('jose-elias-alvarez/null-ls.nvim')
 end)
