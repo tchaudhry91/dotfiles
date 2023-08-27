@@ -1,0 +1,20 @@
+{
+  "speedtest-cli": {
+    "project_root": "git@github.com:sivel/speedtest-cli",
+    "sub_dir": null,
+    "executor": "Docker",
+    "refresh": false,
+    "autogen": true,
+    "tag": "latest",
+    "fs_map": [],
+    "port_map": [],
+    "env_map": [],
+    "overrides": {
+      "name": null,
+      "interpreter": null,
+      "entrypoint": null,
+      "ptype": null
+    },
+    "args": []
+  }
+}

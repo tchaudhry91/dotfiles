@@ -24,3 +24,6 @@ cp -r ./tmux/tmux.conf ~/.config/tmux/tmux.conf
 # Add Kitty conf
 rm -rf ~/.config/kitty || true
 cp -r ./kitty ~/.config/kitty
+
+# Add Envyr Aliases
+cp ./envyr/aliases.json ~/.envyr/aliases.json
