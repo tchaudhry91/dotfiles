@@ -33,6 +33,23 @@ require("lspconfig").rust_analyzer.setup {
 	}
 }
 
+require('lspconfig').prettierd.setup({})
+
+require('lspconfig').tsserver.setup({
+	on_attach = function(client, bufnr)
+		lsp.async_autoformat(client, bufnr)
+	end,
+})
+
+require('lspconfig').pyright.setup({
+	on_attach = function(client, bufnr)
+		lsp.async_autoformat(client, bufnr)
+	end,
+})
+
+require('lspconfig').eslint.setup({})
+
+
 lsp.setup()
 
 -- Make sure you setup `cmp` after lsp-zero
@@ -48,12 +65,4 @@ cmp.setup({
 		['<CR>'] = cmp.mapping.confirm({ select = false }),
 		['<C-Space>'] = cmp.mapping.complete(),
 	}
-})
-
-local null_ls = require("null-ls")
-
-null_ls.setup({
-	sources = {
-		require("null-ls").builtins.formatting.prettierd,
-	},
 })
