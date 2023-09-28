@@ -33,8 +33,6 @@ require("lspconfig").rust_analyzer.setup {
 	}
 }
 
-require('lspconfig').prettierd.setup({})
-
 require('lspconfig').tsserver.setup({
 	on_attach = function(client, bufnr)
 		lsp.async_autoformat(client, bufnr)
