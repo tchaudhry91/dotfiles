@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	"folke/tokyonight.nvim",
 	'nvim-lua/plenary.nvim',
-	{ 'nvim-telescope/telescope.nvim', dependencies = { "nvim-lua/plenary.nvim" } },
+	{ 'nvim-telescope/telescope.nvim',     dependencies = { "nvim-lua/plenary.nvim" } },
 	'ThePrimeagen/harpoon',
 	'nvim-treesitter/nvim-treesitter',
 	'akinsho/toggleterm.nvim',
@@ -25,12 +25,12 @@ local plugins = {
 	'nvim-tree/nvim-web-devicons',
 	'christoomey/vim-tmux-navigator',
 	'neovim/nvim-lspconfig',
-	{'williamboman/mason.nvim', lazy = false},
-	{'williamboman/mason-lspconfig.nvim', lazy = false},
+	{ 'williamboman/mason.nvim',           lazy = false },
+	{ 'williamboman/mason-lspconfig.nvim', lazy = false },
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/cmp-nvim-lsp',
 	'L3MON4D3/LuaSnip',
+	'antonk52/bad-practices.nvim',
 }
 
 require("lazy").setup(plugins, {})
-
