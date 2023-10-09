@@ -10,7 +10,7 @@ rm -rf ~/.config/nvim || true
 cp -r ./nvim ~/.config/
 
 # Additional Step to install Packer
-[ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 
 # Add Tmux Conf
