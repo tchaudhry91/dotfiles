@@ -10,6 +10,12 @@ lspconfig.lua_ls.setup { capabilities = capabilities }
 
 lspconfig.gopls.setup { capabilities = capabilities }
 
+lspconfig.svelte.setup { capabilities = capabilities }
+
+lspconfig.zls.setup { capabilities = capabilities }
+
+lspconfig.pyright.setup { capabilities = capabilities }
+
 lspconfig.rust_analyzer.setup {
 	capabilities = capabilities,
 	settings = {
