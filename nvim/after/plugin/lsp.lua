@@ -1,12 +1,14 @@
 require("mason").setup()
 require("mason-lspconfig").setup(
-	{ ensure_installed = { "rust_analyzer", "lua_ls", "gopls", "svelte", "zls", "pyright" } })
+	{ ensure_installed = { "rust_analyzer", "lua_ls", "gopls", "svelte", "zls", "pyright", "clangd" } })
 
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup { capabilities = capabilities }
+
+lspconfig.clangd.setup { capabilities = capabilities }
 
 lspconfig.gopls.setup { capabilities = capabilities }
 
