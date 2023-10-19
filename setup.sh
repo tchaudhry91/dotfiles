@@ -26,4 +26,5 @@ rm -rf ~/.config/kitty || true
 cp -r ./kitty ~/.config/kitty
 
 # Add Envyr Aliases
+mkdir -p ~/.envyr || true
 cp ./envyr/aliases.json ~/.envyr/aliases.json
