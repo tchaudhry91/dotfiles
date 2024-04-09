@@ -5,4 +5,5 @@
 return {
   'nvim-tree/nvim-tree.lua',
   'akinsho/toggleterm.nvim',
+  'github/copilot.vim',
 }
