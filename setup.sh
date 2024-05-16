@@ -9,11 +9,6 @@ rm -rf ~/.config/nvim || true
 
 cp -r ./nvim ~/.config/
 
-# Add Tmux Conf
-rm -rf ~/.config/tmux/tmux.conf || true
-mkdir -p ~/.config/tmux || true
-cp -r ./tmux/tmux.conf ~/.config/tmux/tmux.conf
-
 [ ! -d ~/.config/tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 
@@ -21,9 +16,12 @@ cp -r ./tmux/tmux.conf ~/.config/tmux/tmux.conf
 rm -rf ~/.config/kitty || true
 cp -r ./kitty ~/.config/kitty
 
-# Add Envyr Aliases
-mkdir -p ~/.envyr || true
-cp ./envyr/aliases.json ~/.envyr/aliases.json
-
-
 cp ./wezterm/wezterm.lua ~/.wezterm.lua
+
+# Add Waybar and Hyprland
+mkdir -p ~/.config/waybar || true
+mkdir -p ~/.config/hypr || true
+
+cp -r ./waybar/* ~/.config/waybar/
+
+cp -r ./hypr/* ~/.config/hypr/
