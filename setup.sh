@@ -13,15 +13,15 @@ cp -r ./nvim ~/.config/
 
 
 # Add Kitty conf
-rm -rf ~/.config/kitty || true
-cp -r ./kitty ~/.config/kitty
+# rm -rf ~/.config/kitty || true
+# cp -r ./kitty ~/.config/kitty
 
-cp ./wezterm/wezterm.lua ~/.wezterm.lua
+# cp ./wezterm/wezterm.lua ~/.wezterm.lua
 
 # Add Waybar and Hyprland
-mkdir -p ~/.config/waybar || true
-mkdir -p ~/.config/hypr || true
+# mkdir -p ~/.config/waybar || true
+# mkdir -p ~/.config/hypr || true
 
-cp -r ./waybar/* ~/.config/waybar/
+# cp -r ./waybar/* ~/.config/waybar/
 
-cp -r ./hypr/* ~/.config/hypr/
+# cp -r ./hypr/* ~/.config/hypr/
