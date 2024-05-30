@@ -10,6 +10,7 @@ rm -rf ~/.config/nvim || true
 cp -r ./nvim ~/.config/
 
 [ ! -d ~/.config/tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+cp ./tmux/tmux.conf ~/.tmux.conf
 
 
 # Add Kitty conf
