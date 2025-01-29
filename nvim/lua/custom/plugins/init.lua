@@ -8,5 +8,4 @@ return {
   'github/copilot.vim',
   'ThePrimeagen/harpoon',
   'folke/trouble.nvim',
-  'devkvlt/go-tags.nvim',
 }
