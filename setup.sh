@@ -13,6 +13,7 @@ cp -r ./nvim ~/.config/
 cp ./tmux/tmux.conf ~/.tmux.conf
 
 
+
 # Add Kitty conf
 # rm -rf ~/.config/kitty || true
 # cp -r ./kitty ~/.config/kitty
