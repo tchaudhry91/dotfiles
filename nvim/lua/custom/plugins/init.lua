@@ -8,4 +8,5 @@ return {
   'github/copilot.vim',
   'ThePrimeagen/harpoon',
   'folke/trouble.nvim',
+  'christoomey/vim-tmux-navigator',
 }
