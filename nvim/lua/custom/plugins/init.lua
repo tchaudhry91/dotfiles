@@ -9,4 +9,5 @@ return {
   'ThePrimeagen/harpoon',
   'folke/trouble.nvim',
   'christoomey/vim-tmux-navigator',
+  'folke/zen-mode.nvim',
 }
