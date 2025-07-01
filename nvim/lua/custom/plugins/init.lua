@@ -5,9 +5,16 @@
 return {
   'nvim-tree/nvim-tree.lua',
   'akinsho/toggleterm.nvim',
-  'github/copilot.vim',
   'ThePrimeagen/harpoon',
   'folke/trouble.nvim',
   'christoomey/vim-tmux-navigator',
   'folke/zen-mode.nvim',
+  {
+    'olimorris/codecompanion.nvim',
+    opts = {},
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
 }
