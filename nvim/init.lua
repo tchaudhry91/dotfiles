@@ -413,6 +413,18 @@ require('lazy').setup {
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
+
+      -- Properly configures lua_ls for Neovim config development
+      {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+          library = {
+            -- Load luvit types when `vim.uv` is used
+            { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+          },
+        },
+      },
     },
     config = function()
       -- Brief Aside: **What is LSP?**
@@ -570,8 +582,10 @@ require('lazy').setup {
               completion = {
                 callSnippet = 'Replace',
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                globals = { 'vim' },
+                -- disable = { 'missing-fields' },
+              },
             },
           },
         },
@@ -651,6 +665,7 @@ require('lazy').setup {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-path',
 
       -- If you want to add a bunch of pre-configured snippets,
@@ -713,7 +728,9 @@ require('lazy').setup {
           end, { 'i', 's' }),
         },
         sources = {
+          { name = 'lazydev', group_index = 0 },
           { name = 'nvim_lsp' },
+          { name = 'nvim_lua' },
           { name = 'luasnip' },
           { name = 'path' },
         },
