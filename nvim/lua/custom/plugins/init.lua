@@ -9,5 +9,5 @@ return {
   'folke/trouble.nvim',
   'christoomey/vim-tmux-navigator',
   'folke/zen-mode.nvim',
-  
+  'tchaudhry91/notevim',
 }
