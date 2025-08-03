@@ -12,7 +12,7 @@ cp -r ./nvim ~/.config/
 [ ! -d ~/.config/tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 cp ./tmux/tmux.conf ~/.tmux.conf
 
-mkdir -p ~/.cladue/agents || true
+mkdir -p ~/.claude/agents || true
 cp claude-agents/* ~/.claude/agents/
 
 
