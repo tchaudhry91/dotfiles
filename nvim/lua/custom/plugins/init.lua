@@ -10,4 +10,5 @@ return {
   'christoomey/vim-tmux-navigator',
   'folke/zen-mode.nvim',
   'tchaudhry91/notevim',
+  'David-Kunz/gen.nvim',
 }
