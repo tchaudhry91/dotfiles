@@ -1,9 +1,9 @@
 require('gen').setup {
-  model = 'qwen2.5-coder', -- The default model to use.
+  model = 'gpt-oss:20b', -- The default model to use.
   quit_map = 'q', -- set keymap to close the response window
   retry_map = '<c-r>', -- set keymap to re-send the current prompt
   accept_map = '<c-cr>', -- set keymap to replace the previous selection with the last result
-  host = 'qenitro.ts.tux-sudo.com', -- The host running the Ollama service.
+  host = 'qe93.ts.tux-sudo.com', -- The host running the Ollama service.
   port = '11434', -- The port on which the Ollama service is listening.
   display_mode = 'float', -- The display mode. Can be "float" or "split" or "horizontal-split" or "vertical-split".
   show_prompt = false, -- Shows the prompt submitted to Ollama. Can be true (3 lines) or "full".
