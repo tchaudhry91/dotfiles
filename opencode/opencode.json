@@ -7,8 +7,7 @@
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "gpt-oss:20b": {},
-        "hf.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q3_K_M": {}
+        "gpt-oss:20b": {}
       }
     }
   }
