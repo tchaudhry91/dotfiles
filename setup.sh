@@ -15,6 +15,9 @@ cp ./tmux/tmux.conf ~/.tmux.conf
 mkdir -p ~/.claude || true
 cp claude/settings.json  ~/.claude/settings.json
 
+mkdir -p ~/.config/opencode || true
+cp -r ./opencode/* ~/.config/opencode/
+
 
 # Add Kitty conf
 # rm -rf ~/.config/kitty || true
