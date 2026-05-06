@@ -6,15 +6,13 @@ return {
       provider = 'openai_compatible',
       provider_options = {
         openai_compatible = {
-          -- Try flash first to verify the endpoint works; switch back to
-          -- deepseek-v4-pro:cloud once confirmed.
           model = 'deepseek-v4-flash:cloud',
           end_point = 'https://ollama.com/v1/chat/completions',
           api_key = 'OLLAMA_CLOUD_API_KEY',
           name = 'Ollama Cloud',
           stream = false,
           optional = {
-            max_tokens = 256,
+            max_tokens = 512,
           },
         },
       },

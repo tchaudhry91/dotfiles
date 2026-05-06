@@ -713,9 +713,7 @@ require('lazy').setup {
           --  completions whenever it has completion options available.
           ['<C-Space>'] = cmp.mapping.complete {},
 
-          -- Manually trigger minuet AI completion (opt-in only).
-          -- NOTE: <C-5> may not work in your terminal. Use <A-y> (Alt+y) if so.
-          ['<C-5>'] = require('minuet').make_cmp_map(),
+          -- Manually trigger minuet AI completion (opt-in only)
           ['<A-y>'] = require('minuet').make_cmp_map(),
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
@@ -744,6 +742,10 @@ require('lazy').setup {
           { name = 'luasnip' },
           { name = 'minuet' },
           { name = 'path' },
+        },
+        -- Show inline ghost text preview for the selected completion item
+        experimental = {
+          ghost_text = true,
         },
       }
     end,
