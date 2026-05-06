@@ -687,6 +687,11 @@ require('lazy').setup {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        performance = {
+          -- Increase timeout for LLM-based completions (minuet).
+          -- Must be >= minuet's request_timeout * 1000.
+          fetching_timeout = 30000,
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -707,6 +712,11 @@ require('lazy').setup {
           --  Generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
           ['<C-Space>'] = cmp.mapping.complete {},
+
+          -- Manually trigger minuet AI completion (opt-in only).
+          -- NOTE: <C-5> may not work in your terminal. Use <A-y> (Alt+y) if so.
+          ['<C-5>'] = require('minuet').make_cmp_map(),
+          ['<A-y>'] = require('minuet').make_cmp_map(),
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
@@ -732,6 +742,7 @@ require('lazy').setup {
           { name = 'nvim_lsp' },
           { name = 'nvim_lua' },
           { name = 'luasnip' },
+          { name = 'minuet' },
           { name = 'path' },
         },
       }
