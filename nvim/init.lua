@@ -353,6 +353,11 @@ require('lazy').setup {
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          preview = {
+            treesitter = false,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
