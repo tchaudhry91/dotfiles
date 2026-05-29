@@ -692,12 +692,6 @@ require('lazy').setup {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
-        performance = {
-          -- Increase timeout for LLM-based completions (minuet).
-          -- Must be >= minuet's request_timeout * 1000.
-          fetching_timeout = 30000,
-        },
-
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
         --
@@ -745,12 +739,7 @@ require('lazy').setup {
           { name = 'nvim_lsp' },
           { name = 'nvim_lua' },
           { name = 'luasnip' },
-          { name = 'minuet' },
           { name = 'path' },
-        },
-        -- Show inline ghost text preview for the selected completion item
-        experimental = {
-          ghost_text = true,
         },
       }
     end,
