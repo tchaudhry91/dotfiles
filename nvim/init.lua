@@ -712,8 +712,6 @@ require('lazy').setup {
           --  completions whenever it has completion options available.
           ['<C-Space>'] = cmp.mapping.complete {},
 
-          -- Manually trigger minuet AI completion (opt-in only)
-          ['<A-y>'] = require('minuet').make_cmp_map(),
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
