@@ -5,10 +5,7 @@
 return {
   'nvim-tree/nvim-tree.lua',
   'akinsho/toggleterm.nvim',
-  'ThePrimeagen/harpoon',
   'folke/trouble.nvim',
   'christoomey/vim-tmux-navigator',
   'folke/zen-mode.nvim',
-  'tchaudhry91/notevim',
-  'David-Kunz/gen.nvim',
 }
