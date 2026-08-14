@@ -809,6 +809,9 @@ require('lazy').setup {
       require('arborist').setup {
         install_popular = false,
         ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'markdown_inline', 'vim', 'vimdoc' },
+        -- tree-sitter-zsh's generated parser.c is ~34MB; its WASM compile
+        -- spikes to ~10GB RAM and thrashes this machine. Skip auto-install.
+        ignore = { 'zsh' },
       }
     end,
   },
