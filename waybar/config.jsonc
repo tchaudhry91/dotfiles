@@ -23,6 +23,7 @@
         "memory",
         "temperature",
         "backlight",
+        "battery",
         "keyboard-state",
         "sway/language",
         "clock",
