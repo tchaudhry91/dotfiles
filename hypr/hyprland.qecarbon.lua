@@ -298,6 +298,26 @@ hl.config({
     --windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 })
 
+-- Safety net for lid-toggle: if the last visible output disappears (HDMI
+-- unplugged while the internal panel is off), turn the internal panel back on.
+-- Without this, Hyprland keeps running on an invisible headless "FALLBACK"
+-- output, which is indistinguishable from a lockout. See lid-toggle.
+hl.on("monitor.removed", function()
+    local visible = 0
+    for _, mon in ipairs(hl.get_monitors()) do
+        visible = visible + 1
+    end
+    if visible == 0 then
+        hl.monitor({
+            output = "eDP-1",
+            disabled = false,
+            mode = "preferred",
+            position = "auto-left",
+            scale = 1,
+        })
+    end
+end)
+
 hl.on("hyprland.start", function()
     hl.exec_cmd("mako")
     hl.exec_cmd("waybar")
