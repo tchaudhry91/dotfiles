@@ -30,4 +30,11 @@ else
 fi
 cp "$src" ~/.config/hypr/hyprland.lua
 
+# ~/.local/bin helpers referenced from the configs
+mkdir -p ~/.local/bin
+for f in "$DOTFILES"/bin/*; do
+  [ -e "$f" ] || continue
+  install -m 0755 "$f" ~/.local/bin/
+done
+
 echo "Setup complete for host '$HOST'."

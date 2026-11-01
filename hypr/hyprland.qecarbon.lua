@@ -20,10 +20,14 @@
 -- The Samsung is a 100 Hz panel; its EDID *preferred* mode is 60 Hz, so the
 -- mode has to be pinned or the compositor modesets it to 60 and pointer
 -- motion looks choppy. Confirm with: edid-decode /sys/class/drm/card1-HDMI-A-1/edid
+--
+-- The internal panel stays enabled here on purpose: persisting
+-- `disabled = true` would leave you with no visible output whenever the HDMI
+-- monitor is unplugged. Use `lid-toggle` (Alt+O) to blank it per-session.
 hl.monitor({
     output = "eDP-1",
     mode = "1920x1080",
-    position = "0x0",
+    position = "auto-left",
     scale = 1,
 })
 
@@ -191,6 +195,10 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s +5%"))
 -- ThinkPad keyboard backlight: off -> dim -> bright -> off
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("kbd-backlight"))
 
+-- Toggle the internal laptop panel on/off (see lid-toggle). The script refuses
+-- to disable eDP-1 when no other output is enabled, so this is safe undocked.
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("lid-toggle"))
+
 hl.config({
     general = {
         gaps_in = 2,
@@ -239,6 +247,10 @@ hl.config({
     misc = {
         force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+        -- Never let a blanked screen be unrecoverable: a keypress or mouse
+        -- movement wakes DPMS again. Both default to false.
+        mouse_move_enables_dpms = true,
+        key_press_enables_dpms = true,
     },
     --############
     --## INPUT ###

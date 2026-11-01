@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# lid-toggle — turn the internal laptop panel off/on without risking a lockout.
+#
+# Uses Hyprland's `disabled` monitor rule rather than DPMS, because DPMS would
+# also blank the external monitor if the lid is shut. `disabled` is what makes
+# the panel stop being a workspace target at all.
+#
+# Safety: if disabling eDP-1 would leave no *visible* external output, refuse.
+# Hyprland 0.56 has a headless "FALLBACK" output for this case, but it is
+# invisible, so falling into it is indistinguishable from a lockout.
+#
+#   lid-toggle          # toggle the internal panel
+#   lid-toggle off      # disable the internal panel
+#   lid-toggle on       # enable the internal panel
+#   lid-toggle status   # report which outputs are visible
+
+set -euo pipefail
+
+INTERNAL="${LID_TOGGLE_INTERNAL:-eDP-1}"
+
+die() { printf 'lid-toggle: %s\n' "$*" >&2; exit 1; }
+
+have_hypr() { hyprctl version >/dev/null 2>&1; }
+
+# Names of monitors that are currently on and are not the internal panel.
+external_visible() {
+  hyprctl -j monitors \
+    | jq -r --arg internal "$INTERNAL" \
+        '.[] | select(.name != $internal and (.disabled | not)) | .name'
+}
+
+internal_state() {
+  # A disabled monitor is absent from `hyprctl monitors` but present in `all`.
+  if hyprctl -j monitors all | jq -e --arg internal "$INTERNAL" \
+        '.[] | select(.name == $internal) | select(.disabled) | .name' >/dev/null; then
+    echo disabled
+  else
+    echo enabled
+  fi
+}
+
+set_internal() {
+  local want="$1" mode
+  mode=$(internal_state)
+
+  if [ "$want" = off ]; then
+    [ "$mode" = disabled ] && { echo "internal panel already off"; return 0; }
+    if [ -z "$(external_visible)" ]; then
+      die "refusing to disable $INTERNAL: no other output is currently enabled."
+    fi
+    hyprctl eval "hl.monitor({ output = \"$INTERNAL\", disabled = true })" >/dev/null
+    echo "internal panel off; visible: $(external_visible | tr '\n' ' ')"
+  else
+    [ "$mode" = enabled ] && { echo "internal panel already on"; return 0; }
+    # Re-place the panel left of whatever is currently visible.
+    hyprctl eval "hl.monitor({ output = \"$INTERNAL\", mode = \"preferred\", position = \"auto-left\", scale = 1 })" >/dev/null
+    echo "internal panel on; visible: $(hyprctl -j monitors | jq -r '.[].name' | tr '\n' ' ')"
+  fi
+}
+
+have_hypr || die "hyprctl not reachable (are you in a Hyprland session?)"
+
+case "${1:-toggle}" in
+  on)     set_internal on ;;
+  off)    set_internal off ;;
+  toggle) [ "$(internal_state)" = enabled ] && set_internal off || set_internal on ;;
+  status)
+    printf 'internal (%s): %s\n' "$INTERNAL" "$(internal_state)"
+    printf 'visible outputs: %s\n' "$(hyprctl -j monitors | jq -r '.[].name' | tr '\n' ' ')"
+    ;;
+  *) die "usage: lid-toggle [on|off|toggle|status]" ;;
+esac
