@@ -16,7 +16,10 @@
 set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-HOST="$(hostname | tr '[:upper:]' '[:lower:]')"
+# `hostname` is not guaranteed: it lives in inetutils on Arch, which is not a
+# base package (this broke on a fresh qemini, 2026-11-02). /proc/sys/kernel/hostname
+# is always there.
+HOST="$(cat /proc/sys/kernel/hostname | tr '[:upper:]' '[:lower:]')"
 PROFILE="desktop"
 
 usage() {
