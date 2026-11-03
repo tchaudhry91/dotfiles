@@ -245,8 +245,14 @@ hl.config({
         repeat_rate = 40,
         repeat_delay = 300,
         follow_mouse = 1,
-        --sensitivity = 0.4# -1.0 - 1.0, 0 means no modification.
-        --accel_profile = flat
+        -- Pointer: logitech-gaming-mouse-g402 on this desktop. Hyprland's
+        -- default accel_profile is "adaptive", which applies strong pointer
+        -- acceleration and made fine aiming unpleasant. "flat" disables
+        -- acceleration entirely so motion is linear - the G402 already does
+        -- its own curve in firmware if you want one. sensitivity stays 0
+        -- (no global speed scaling); raise it if flat feels too slow.
+        accel_profile = "flat",
+        sensitivity = 0.0,
         touchpad = {
             scroll_factor = 0.5,
             natural_scroll = true,
