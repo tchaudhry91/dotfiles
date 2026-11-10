@@ -32,9 +32,19 @@ hl.monitor({
 -- External display over TB3, positioned to the right of the laptop panel.
 -- Matched by description so it works regardless of whether the adapter
 -- enumerates as DP-1, DP-2 or HDMI-A-1.
+--
+-- The mode is PINNED to 100 Hz, not "preferred". This is the same monitor and the
+-- same trap as qemini/qecarbon: it is a 100 Hz ultrawide whose EDID *preferred*
+-- mode is 60 Hz, so "preferred" silently modesets to 60 and pointer motion looks
+-- choppy. Verified on this machine: `hyprctl monitors` showed 2560x1080@59.978
+-- while availableModes listed 2560x1080@100.00Hz.
+-- Matched by EDID description: "LG Electronics LG ULTRAWIDE". A desc: match is
+-- used rather than pinning DP-1 because the output name depends on which TB3
+-- adapter/dongle is in use - it has enumerated as DP-1 here, but a different
+-- adapter can present it as DP-2 or HDMI-A-1.
 hl.monitor({
-    output = "desc:External",
-    mode = "preferred",
+    output = "desc:LG Electronics LG ULTRAWIDE",
+    mode = "2560x1080@100",
     position = "auto-right",
     scale = "1",
 })
